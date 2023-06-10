@@ -1,6 +1,6 @@
 from ex_1 import LinkedList, Node
 
-values = [13, 12, 55, 13, 128, 'str', 13]
+values = [13, 12, 55, 13, 128, 'str', 13, 13, 13]
 values_2 = [12, 55, 128, 'str', 11]
 s_list = LinkedList()
 
@@ -28,8 +28,17 @@ def test_delete(value):
     s_list.print_all_nodes()
 
 def test_delete_all(value):
-    n = s_list.delete(value, True)
-    s_list.print_all_nodes() 
+    a = list(reversed(values))
+    # a = values
+    r_list = LinkedList()
+
+    for el in a:
+        n = Node(el)
+        r_list.add_in_tail(n)
+    r_list.print_all_nodes() 
+    print('....')
+    r_list.delete(value, True)
+    r_list.print_all_nodes() 
 
 def test_clean():
     s_list.print_all_nodes()
@@ -80,8 +89,8 @@ def test_insert():
     # s_list.print_all_nodes()
 
     
-
-test_insert()
+test_delete_all(13)
+# test_insert()
 # test_val()
 # test_len()
 # test_find_all()
