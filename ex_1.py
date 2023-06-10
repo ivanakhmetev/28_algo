@@ -101,10 +101,8 @@ class LinkedList:
                 curr_node = curr_node.next
 
     def clean(self):
-        node = self.head
-        while node is not None:
-            node.value = None
-            node = node.next
+        self.head = None
+        self.tail = None
 
     def len(self):
         list_len = 0
