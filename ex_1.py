@@ -75,13 +75,15 @@ class LinkedList:
     def delete(self, val, all=False):
         if self.head is None:
             return
-        while self.head.value == val and all:
+        while self.head.value == val:
             if self.head == self.tail:
                 self.head = None
                 self.tail = None
                 return
             else:
                 self.head = self.head.next
+                if not all:
+                    return
         
         prev_node = None
         curr_node = self.head

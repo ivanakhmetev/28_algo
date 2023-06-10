@@ -2,6 +2,8 @@ from ex_1 import LinkedList, Node
 
 values = [13, 12, 55, 13, 128, 'str', 13, 13, 13]
 values_2 = [12, 55, 128, 'str', 11]
+# values = [13, 12]
+# values = [12, 13]
 s_list = LinkedList()
 
 for el in values:
@@ -90,6 +92,7 @@ def test_insert():
 
     
 test_delete_all(13)
+test_delete(13)
 # test_insert()
 # test_val()
 # test_len()
