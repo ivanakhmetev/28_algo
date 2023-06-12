@@ -43,13 +43,50 @@ class LinkedList2:
         return rtn
 
     def delete(self, val, all=False):
-        pass # здесь будет ваш код
+        if self.head is None:
+            return
+        while self.head.value == val:
+            if self.head == self.tail:
+                self.head = None
+                self.tail = None
+                return
+            else:
+                self.head = self.head.next
+                self.head.prev = None
+                if not all:
+                    return
+        
+        # prev_node = None
+        curr_node = self.head
+        while curr_node is not None:
+            if curr_node.value == val:
+                if curr_node == self.tail:
+                    self.tail = self.tail.prev
+                    self.tail.next = None
+                if curr_node.prev is not None:
+                    tmp = curr_node.prev
+                    curr_node.prev.next = curr_node.next
+                    curr_node.next.prev = tmp
+                    # prev_node.next = curr_node.next
+                curr_node = curr_node.next
+                if not all:
+                    return
+            else:
+                # prev_node = curr_node
+                curr_node = curr_node.next
+
+
 
     def clean(self):
         pass # здесь будет ваш код
 
     def len(self):
-        return 0 # здесь будет ваш код
+        s_len = 0
+        node = self.head
+        while node is not None:
+            s_len += 1
+            node = node.next
+        return s_len
 
     def insert(self, afterNode, newNode):
         pass # здесь будет ваш код
