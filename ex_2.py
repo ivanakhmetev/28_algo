@@ -56,23 +56,19 @@ class LinkedList2:
                 if not all:
                     return
         
-        # prev_node = None
         curr_node = self.head
         while curr_node is not None:
             if curr_node.value == val:
+                if curr_node.prev is not None and curr_node.next is not None:
+                    curr_node.prev.next = curr_node.next
+                    curr_node.next.prev = curr_node.prev
                 if curr_node == self.tail:
                     self.tail = self.tail.prev
                     self.tail.next = None
-                if curr_node.prev is not None:
-                    tmp = curr_node.prev
-                    curr_node.prev.next = curr_node.next
-                    curr_node.next.prev = tmp
-                    # prev_node.next = curr_node.next
                 curr_node = curr_node.next
                 if not all:
                     return
             else:
-                # prev_node = curr_node
                 curr_node = curr_node.next
 
 

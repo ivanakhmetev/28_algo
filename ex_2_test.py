@@ -31,6 +31,7 @@ from ex_2 import Node, LinkedList2
 # find(val)
 
 values = [1, 1, 2, 1, 2, 3, 'a', 'b', 17, 17]
+values = [1, 1, 1, 1, 1]
 s_list = LinkedList2()
 for el in values:
     s_list.add_in_tail(Node(el))
@@ -65,15 +66,17 @@ def test_find_all():
     #     pass # здесь будет ваш код
 
 def test_delete():
-    values_to_del = [1, -2, 3, 20, 17, 'a']
+    # values = [1, 1, 2, 1, 2, 3, 'a', 'b', 17, 17]
+    values_to_del = [1, -2, 3, 2, 2, 20, 17, 'a']
     for el in values_to_del:
         # if el in values:
         #     s_len = s_list.len()
-        s_list.delete(el, True)
+        print('deleting', el)
+        s_list.delete(el)
         # if el in values:
         #     assert s_list.len() == s_len - 1
-    print('deleted')
-    s_list.print_all_nodes()
+        print('deleted')
+        s_list.print_all_nodes()
 
         
 
