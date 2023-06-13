@@ -85,7 +85,27 @@ class LinkedList2:
         return s_len
 
     def insert(self, afterNode, newNode):
-        pass # здесь будет ваш код
+        if afterNode == None:
+            if self.head == None:
+                self.add_in_head(newNode)
+            else:
+                self.add_in_tail(newNode)
+        else:
+            if afterNode == self.tail:
+                self.add_in_tail(newNode)
+            else:
+                newNode.prev = afterNode
+                newNode.next = afterNode.next
+                afterNode.next.prev = newNode
+                afterNode.next = newNode        
 
     def add_in_head(self, newNode):
-        pass # здесь будет ваш код   
+        if self.head == None:
+            newNode.prev = None
+            newNode.next = None
+            self.tail = newNode
+        else:
+            self.head.prev = newNode
+            newNode.next = self.head
+            newNode.prev = None
+        self.head = newNode

@@ -32,6 +32,7 @@ from ex_2 import Node, LinkedList2
 
 values = [1, 1, 2, 1, 2, 3, 'a', 'b', 17, 17]
 values = [1, 1, 1, 1, 1]
+# values = []
 s_list = LinkedList2()
 for el in values:
     s_list.add_in_tail(Node(el))
@@ -78,9 +79,39 @@ def test_delete():
         print('deleted')
         s_list.print_all_nodes()
 
+#  2.6. Добавьте в класс LinkedList2 метод вставки узла самым первым элементом.
+
+# add_in_head(newNode)
+
+def test_add_in_head():
+    values_to_add =  [1, -2, 3, 2, 2, 20, 17, 'a']
+    for el in values_to_add:
+        print('adding', el)
+        s_list.add_in_head(Node(el))
+        print('added')
+        s_list.print_all_nodes()
+
+def test_insert():
+    node = Node(50)
+    print('original')
+    s_list.print_all_nodes()
+    s_list.insert(s_list.find(1), node)
+    print('add 50 after 1')
+    s_list.print_all_nodes()
+    node = Node(51)
+    s_list.insert(None, node)
+    print('add 51 after None')
+    s_list.print_all_nodes()
+    s2_list = LinkedList2()
+    node = Node(52)
+    s2_list.insert(None, node)
+    print('add 52 in empty')
+    s2_list.print_all_nodes()
         
 
 
 # test_find()
 # test_find_all()
-test_delete()
+# test_delete()
+# test_add_in_head()
+test_insert()
