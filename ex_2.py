@@ -74,7 +74,7 @@ class LinkedList2:
 
 
     def clean(self):
-        pass # здесь будет ваш код
+        self.__init__()
 
     def len(self):
         s_len = 0

@@ -107,6 +107,13 @@ def test_insert():
     s2_list.insert(None, node)
     print('add 52 in empty')
     s2_list.print_all_nodes()
+
+def test_clean():
+    s_list.print_all_nodes()
+    s_list.clean()
+    print('cleaned')
+    s_list.print_all_nodes()
+    print(s_list.len())
         
 
 
@@ -114,4 +121,5 @@ def test_insert():
 # test_find_all()
 # test_delete()
 # test_add_in_head()
-test_insert()
+# test_insert()
+test_clean()
