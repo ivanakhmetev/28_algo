@@ -1,4 +1,6 @@
 from ex_2 import Node, LinkedList2
+from ex_2_star import DummyLinkedList2
+
 
 # class Node:
 #     def __init__(self, v):
@@ -31,13 +33,20 @@ from ex_2 import Node, LinkedList2
 # find(val)
 
 values = [1, 1, 2, 1, 2, 3, 'a', 'b', 17, 17]
-values = [1, 1, 1, 1, 1]
+# values = [1, 1, 1, 1, 1]
 # values = []
-s_list = LinkedList2()
+# s_list = LinkedList2()
+# for el in values:
+#     s_list.add_in_tail(Node(el))
+# print('original list:')
+# s_list.print_all_nodes()
+
+s_list = DummyLinkedList2()
 for el in values:
     s_list.add_in_tail(Node(el))
 print('original list:')
 s_list.print_all_nodes()
+
 
 
 def test_find():
@@ -73,7 +82,7 @@ def test_delete():
         # if el in values:
         #     s_len = s_list.len()
         print('deleting', el)
-        s_list.delete(el)
+        s_list.delete(el, True)
         # if el in values:
         #     assert s_list.len() == s_len - 1
         print('deleted')
@@ -116,10 +125,10 @@ def test_clean():
     print(s_list.len())
         
 
-
+# test_add_in_head()
 # test_find()
 # test_find_all()
 # test_delete()
 # test_add_in_head()
-# test_insert()
-test_clean()
+test_insert()
+# test_clean()
