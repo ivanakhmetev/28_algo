@@ -12,8 +12,9 @@ class DummyNode(Node):
 
 class DummyLinkedList2():
     def __init__(self):
-        self.head = DummyNode()
-        self.tail = DummyNode()
+        dummy = DummyNode()
+        self.head = dummy
+        self.tail = dummy
         self.head.next = self.tail
         self.tail.prev = self.head
 
@@ -31,13 +32,13 @@ class DummyLinkedList2():
 
     def print_all_nodes(self):
         node = self.head.next
-        while node is not self.tail:
-            print('t',node.value)
+        while not isinstance(node, DummyNode):
+            print(node.value)
             node = node.next
 
     def find(self, val):
         node = self.head.next
-        while node is not self.tail:
+        while not isinstance(node, DummyNode):
             if node.value == val:
                 return node
             node = node.next
@@ -46,7 +47,7 @@ class DummyLinkedList2():
     def find_all(self, val):
         rtn = []
         node = self.head.next
-        while node is not self.tail:
+        while not isinstance(node, DummyNode):
             if node.value == val:
                 rtn.append(node)
             node = node.next
@@ -54,7 +55,7 @@ class DummyLinkedList2():
     
     def delete(self, val, all=False):
         node = self.head.next
-        while node is not self.tail:
+        while not isinstance(node, DummyNode):
             if node.value == val and not all:
                 node.prev.next = node.next
                 node.next.prev = node.prev
@@ -70,15 +71,15 @@ class DummyLinkedList2():
     def len(self):
         s_len = 0
         node = self.head.next
-        while node is not self.tail:
+        while not isinstance(node, DummyNode):
             s_len += 1
             node = node.next
         return s_len
         
     def insert(self, afterNode, newNode):
-        if afterNode is None and self.head.next == self.tail:
+        if afterNode is None and isinstance(self.head.next, DummyNode):
             self.add_in_head(newNode)
-        if afterNode is None and self.head.next != self.tail:
+        if afterNode is None and not isinstance(self.head.next, DummyNode):
             self.add_in_tail(newNode)
         if afterNode is not None:
             newNode.prev = afterNode
