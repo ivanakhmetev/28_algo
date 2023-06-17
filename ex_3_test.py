@@ -57,3 +57,5 @@ for i in range(70):
 test_delete()
 da.print_elements()
 
+# сложность обоих методов - О(n)
+
