@@ -8,9 +8,9 @@ from ex_3 import DynArray
     # def delete(self, i):
     #     pass        # удаляем объект в позиции i
 
-da = DynArray()
-for i in range(64):
-    da.append(i)
+# da = DynArray()
+# for i in range(64):
+#     da.append(i)
 
 def test_insert():
     itm = 'el'
@@ -34,26 +34,26 @@ def test_insert():
 
 
 def test_delete():
-    idx_where_delete = [-1,10, 0,  2,  4, 6, 100]
+    # idx_where_delete = [-1,10, 0,  2,  4, 6, 100]
     # da.resize(18)
-    for idx in range(60):
+    for idx in range(16):
         try:
-            print(da.capacity)
-            print('deleting el from', 1)
+            # print(da.capacity)
+            print('deleting el from', 0)
             da.delete(1)
-            print('value at idx', da[1])
-            print(da.capacity)
+            # print('value at idx', da[1])
+            # print(da.capacity)
         except:
             pass
 
 
 da = DynArray()
-for i in range(70):
+for i in range(14):
     da.append(i)
     # print (da[i]) 
 
 # test_insert()
-# da.print_elements()
+da.print_elements()
 test_delete()
 da.print_elements()
 
