@@ -64,3 +64,26 @@ class DynArray:
         self.array = new_array
         self.count -= 1
         
+
+class Stack:
+    def __init__(self):
+        self.stack = DynArray()
+
+    def size(self):
+        return len(self.stack)
+
+    def pop(self):
+        if self.size() == 0:
+            return None
+        top_element = self.stack[self.stack.count - 1]
+        self.stack.delete(self.stack.count - 1)
+        return top_element
+
+    def push(self, value):
+        self.stack.append(value)
+
+    def peek(self):
+        if self.size == 0:
+            return None
+        return self.stack[self.stack.count - 1]
+
