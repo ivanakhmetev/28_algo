@@ -102,3 +102,19 @@ class Stack:
             return None
         return self.stack[0]
 
+def is_balanced(braces: str):
+    if len(braces) % 2 != 0:
+        return False
+    stack = Stack()
+    for brace in braces:
+        if brace == '(':
+            stack.push(brace)
+        try:
+            last_element = stack.peek()
+        except:
+            last_element = None
+        if brace == ')' and last_element == '(':
+            stack.pop()
+        if last_element is None:
+            return False
+    return True

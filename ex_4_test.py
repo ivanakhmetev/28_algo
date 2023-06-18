@@ -1,4 +1,4 @@
-from ex_4 import Stack
+from ex_4 import Stack, is_balanced
 
 st = Stack()
 
@@ -23,8 +23,13 @@ def test_pop():
         print(st.pop())
         print(st.pop())
 
-test_push()
+# test_push()
 # test_peek()
 # test_size()
-test_pop()
+# test_pop()
+arrays = ['(())', "(()((())()))", "(()()(()", "())(", "))((", "((())"]
+
+for el in arrays:
+    print(el)
+    print(is_balanced(el))
 
