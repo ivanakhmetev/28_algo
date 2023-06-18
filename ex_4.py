@@ -93,12 +93,12 @@ class Stack:
         self.stack.insert(0, value)
 
     # def peek(self):
-    #     if self.size == 0:
+    #     if self.size() == 0:
     #         return None
     #     return self.stack[self.stack.count - 1]
 
     def peek(self):
-        if self.size == 0:
+        if self.size() == 0:
             return None
         return self.stack[0]
 
