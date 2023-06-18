@@ -72,18 +72,33 @@ class Stack:
     def size(self):
         return len(self.stack)
 
+    # def pop(self):
+    #     if self.size() == 0:
+    #         return None
+    #     top_element = self.stack[self.stack.count - 1]
+    #     self.stack.delete(self.stack.count - 1)
+    #     return top_element
+
     def pop(self):
         if self.size() == 0:
             return None
-        top_element = self.stack[self.stack.count - 1]
-        self.stack.delete(self.stack.count - 1)
+        top_element = self.stack[0]
+        self.stack.delete(0)
         return top_element
 
+    # def push(self, value):
+    #     self.stack.append(value)
+
     def push(self, value):
-        self.stack.append(value)
+        self.stack.insert(0, value)
+
+    # def peek(self):
+    #     if self.size == 0:
+    #         return None
+    #     return self.stack[self.stack.count - 1]
 
     def peek(self):
         if self.size == 0:
             return None
-        return self.stack[self.stack.count - 1]
+        return self.stack[0]
 
