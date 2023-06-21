@@ -111,6 +111,7 @@ class LinkedList2:
         self.head = newNode
 
 class Queue:
+
     def __init__(self):
         self.queue = LinkedList2()
 
@@ -127,6 +128,7 @@ class Queue:
     def size(self):
         return self.queue.len()
     
+
 class Circle():
 
     def __init__(self):
@@ -140,14 +142,6 @@ class Circle():
             return None
         return self.sectors[i % len(self.sectors)]
     
-circle = Circle()
-for i in range(20):
-    circle.append(i)
-
-qu = Queue()
-start_pos = 5
-for i in range(start_pos):
-    qu.enqueue(circle[i])
 
 def round(shift: int):
     i = 0
@@ -156,9 +150,7 @@ def round(shift: int):
         qu.enqueue(circle[start_pos + i])
         i += 1
 
-print('original queue')        
-qu.queue.print_all_nodes()
-round(19)
-print('aftershift queue')  
-qu.queue.print_all_nodes()
+
+
+
 
