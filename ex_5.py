@@ -23,6 +23,8 @@ class Queue:
         self.s1.push(elem)
 
     def dequeue(self):
+        if not self.s1 and not self.s2:
+            return None
         if not self.s2:
             while self.s1:
                 self.s2.push(self.s1.pop())
