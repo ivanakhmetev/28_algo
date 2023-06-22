@@ -6,13 +6,10 @@ class Stack:
         return bool(self.stack)
 
     def push(self, elem):
-        if self.stack:
-            self.stack.append((elem, min(elem, self.stack[-1][1])))
-        else:
-            self.stack.append((elem, elem))
+        self.stack.append(elem)
 
     def pop(self):
-        return self.stack.pop()[0]
+        return self.stack.pop()
     
     def len(self):
         return len(self.stack)
