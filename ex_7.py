@@ -21,7 +21,6 @@ class OrderedList:
     def find(self, value):
         left = 0
         right = self.len() - 1
-        print(left, right)
         while left < right:
             middle = (left + right) / 2
             compare = self.compare(self[middle], value) 
