@@ -95,6 +95,8 @@ class OrderedList:
     def len(self):
         node = self.head
         i = 0
+        if self.head == self.tail:
+            return 1
         while node.next is not None :
             node = node.next
             i += 1
