@@ -18,20 +18,20 @@ class OrderedList:
         if v1 > v2:
             return 1
         
-    # def binary_search(self, value):
-    #     left = 0
-    #     right = self.len() - 1
-    #     print(left, right)
-    #     while left < right:
-    #         middle = (left + right) / 2
-    #         compare = self.compare(self[middle], value) 
-    #         if compare == 0:
-    #             return middle
-    #         if compare < 0:
-    #             right = middle - 1
-    #         if compare > 0:
-    #             left = middle + 1
-    #     return None
+    def find(self, value):
+        left = 0
+        right = self.len() - 1
+        print(left, right)
+        while left < right:
+            middle = (left + right) / 2
+            compare = self.compare(self[middle], value) 
+            if compare == 0:
+                return self[middle]
+            if compare < 0:
+                right = middle - 1
+            if compare > 0:
+                left = middle + 1
+        return None
         
     def add(self, value):
         new_node = Node(value)
@@ -94,9 +94,9 @@ class OrderedList:
 
     def len(self):
         node = self.head
+        if node == None:
+            return 0
         i = 0
-        if self.head == self.tail:
-            return 1
         while node.next is not None :
             node = node.next
             i += 1
