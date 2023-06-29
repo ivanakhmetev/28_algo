@@ -162,11 +162,34 @@ ol.add(1)  # Добавляем первый элемент
 print(ol.get_values())
 
 ol = OrderedList(False)  # Создаем упорядоченный список по возрастанию
+print(ol.get_values())
+print('len', ol.len())
 ol.add(1)  # Добавляем первый элемент
+print(ol.get_values())
+print('len', ol.len())
+print(ol.get_values())
 ol.add(3)  # Добавляем второй элемент, который должен быть больше первого
+print(ol.get_values())
+print('len', ol.len())
 ol.add(2)  # Добавляем третий элемент, который нарушает упорядоченность
 print(ol.get_values())
-print(ol.find(1).prev, ol.find(1).next)
-print(ol.head.value, ol.tail.value)
-print(ol.head.prev, ol.head.next.value)
-print(ol.tail.next, ol.tail.prev.value)
+print('len', ol.len())
+print('delete')
+
+ol.delete(2)
+print(ol.get_values())
+print('len', ol.len())
+ol.delete(3)
+print(ol.get_values())
+print('len', ol.len())
+ol.delete(3)
+print(ol.get_values())
+print('len', ol.len())
+ol.delete(1)
+print(ol.get_values())
+print('len', ol.len())
+# print(ol.get_values())
+# print(ol.find(1).prev, ol.find(1).next)
+# print(ol.head.value, ol.tail.value)
+# print(ol.head.prev, ol.head.next.value)
+# print(ol.tail.next, ol.tail.prev.value)

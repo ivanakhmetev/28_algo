@@ -79,9 +79,14 @@ class OrderedList:
         if self.head.value == val and self.head.next is None:
             self.__init__(self.__ascending)
             return
+        if self.head.value == val and self.head.next:
+            self.head = self.head.next
+            self.head.prev = None
+            return
         current = self.head
         while current.next:
             if current.next.value == val and current.next.next:
+                current.next.next.prev = current
                 current.next = current.next.next
                 return
             if current.next.value == val and current.next.next is None:
