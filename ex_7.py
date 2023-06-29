@@ -98,15 +98,23 @@ class OrderedList:
     def clean(self, asc):
         self.__init__(asc)
 
+    # def len(self):
+    #     node = self.head
+    #     i = 0
+    #     if node is None:
+    #         return 0
+    #     while node.next is not None:
+    #         node = node.next
+    #         i += 1
+    #     return i + 1
+
     def len(self):
         node = self.head
-        i = 0
-        if node is None:
-            return 0
-        while node.next is not None:
+        count = 0
+        while node:
+            count += 1
             node = node.next
-            i += 1
-        return i + 1
+        return count
 
     def get_all(self):
         r = []
