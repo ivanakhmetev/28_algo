@@ -154,3 +154,19 @@ ol.delete(10)
 assert ol.get_values() == [ 7, 3, 1]
 
 print("3 тесты пройдены успешно!")
+
+ol = OrderedList(True)  # Создаем упорядоченный список по возрастанию
+ol.add(1)  # Добавляем первый элемент
+# ol.add(3)  # Добавляем второй элемент, который должен быть больше первого
+# ol.add(2)  # Добавляем третий элемент, который нарушает упорядоченность
+print(ol.get_values())
+
+ol = OrderedList(False)  # Создаем упорядоченный список по возрастанию
+ol.add(1)  # Добавляем первый элемент
+ol.add(3)  # Добавляем второй элемент, который должен быть больше первого
+ol.add(2)  # Добавляем третий элемент, который нарушает упорядоченность
+print(ol.get_values())
+print(ol.find(1).prev, ol.find(1).next)
+print(ol.head.value, ol.tail.value)
+print(ol.head.prev, ol.head.next.value)
+print(ol.tail.next, ol.tail.prev.value)
