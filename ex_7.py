@@ -36,42 +36,90 @@ class OrderedList:
             self.head = new_node
             self.tail = new_node
             return
-        if self.__ascending and self.compare(value, self.head.value) <= 0:
-            new_node.next = self.head
-            self.head.prev = new_node
-            self.head = new_node
-            return            
-        if self.__ascending and  self.compare(value, self.tail.value) >= 0:
-            self.tail.next = new_node
-            new_node.prev = self.tail
-            self.tail = new_node
-            return
+
         if self.__ascending:
+            if self.compare(value, self.head.value) <= 0:
+                new_node.next = self.head
+                self.head.prev = new_node
+                self.head = new_node
+                return
+
             current = self.head
             while current.next and self.compare(value, current.next.value) > 0:
                 current = current.next
+
             new_node.next = current.next
             new_node.prev = current
+
+            if current.next:
+                current.next.prev = new_node
+            else:
+                self.tail = new_node
+
             current.next = new_node
-            return
-        if not self.__ascending and self.compare(value, self.head.value) >= 0:
-            new_node.next = self.head
-            self.head.prev = new_node
-            self.head = new_node
-            return 
-        if not self.__ascending and self.compare(value, self.tail.value) <= 0:
-            self.tail.next = new_node
-            new_node.prev = self.tail
-            self.tail = new_node
-            return
-        if not self.__ascending:
+        else:
+            if self.compare(value, self.head.value) >= 0:
+                new_node.next = self.head
+                self.head.prev = new_node
+                self.head = new_node
+                return
+
             current = self.head
             while current.next and self.compare(value, current.next.value) < 0:
                 current = current.next
+
             new_node.next = current.next
             new_node.prev = current
+
+            if current.next:
+                current.next.prev = new_node
+            else:
+                self.tail = new_node
+
             current.next = new_node
-            return
+
+    # def add(self, value):
+    #     new_node = Node(value)
+    #     if self.head is None:
+    #         self.head = new_node
+    #         self.tail = new_node
+    #         return
+    #     if self.__ascending and self.compare(value, self.head.value) <= 0:
+    #         new_node.next = self.head
+    #         self.head.prev = new_node
+    #         self.head = new_node
+    #         return            
+    #     if self.__ascending and  self.compare(value, self.tail.value) >= 0:
+    #         self.tail.next = new_node
+    #         new_node.prev = self.tail
+    #         self.tail = new_node
+    #         return
+    #     if self.__ascending:
+    #         current = self.head
+    #         while current.next and self.compare(value, current.next.value) > 0:
+    #             current = current.next
+    #         new_node.next = current.next
+    #         new_node.prev = current
+    #         current.next = new_node
+    #         return
+    #     if not self.__ascending and self.compare(value, self.head.value) >= 0:
+    #         new_node.next = self.head
+    #         self.head.prev = new_node
+    #         self.head = new_node
+    #         return 
+    #     if not self.__ascending and self.compare(value, self.tail.value) <= 0:
+    #         self.tail.next = new_node
+    #         new_node.prev = self.tail
+    #         self.tail = new_node
+    #         return
+    #     if not self.__ascending:
+    #         current = self.head
+    #         while current.next and self.compare(value, current.next.value) < 0:
+    #             current = current.next
+    #         new_node.next = current.next
+    #         new_node.prev = current
+    #         current.next = new_node
+    #         return
         
     def delete(self, val):
         if self.head is None:
