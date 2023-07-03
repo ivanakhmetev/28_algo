@@ -21,14 +21,10 @@ class NativeDictionary:
         self.values[hash_key] = value
 
     def is_key(self, key):
-        if key in self.slots:
-            return True
-        return False
+        return key in self.slots
 
     def get(self, key):
-        if self.is_key(key):
-            return self.values[self.hash_fun(key)]
-        return None
+        return self.values[self.hash_fun(key)]
     
     def space_left(self):
         return sum([1 for el in self.values if el is None])
