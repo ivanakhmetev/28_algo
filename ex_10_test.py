@@ -34,10 +34,15 @@ for i in range(10):
     p.put(str(i))
 print(p.get_all())
 
-for i in range(5, 15):
+for i in range(5, 18):
     # print(i)
     p2.put(str(i))
 print(p2.get_all())
 
 p3 = p.intersection(p2)
 print(p3.get_all())
+p4 = p.union(p2)
+print(p4.get_all())
+p5 = p.difference(p2)
+print(p5.get_all())
+print(p.issubset(p5))

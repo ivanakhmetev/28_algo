@@ -89,18 +89,27 @@ class PowerSet(HashTable):
         return new_set
 
     def union(self, set2):
-        new_set = self.__init__()
-
-
-        # объединение текущего множества и set2
-        return None
+        new_set = PowerSet()
+        elems_1 = self.get_all()
+        elems_2 = set2.get_all()
+        for el in elems_1:
+            new_set.put(el)
+        for el in elems_2:
+            new_set.put(el)
+        return new_set
 
     def difference(self, set2):
-        # разница текущего множества и set2
-        return None
+        new_set = PowerSet()
+        elems_1 = self.get_all()
+        for el in elems_1:
+            if set2.get(el) == False:
+                new_set.put(el)
+        return new_set
+
 
     def issubset(self, set2):
-        # возвращает True, если set2 есть
-        # подмножество текущего множества,
-        # иначе False
-        return False
+        elems_2 = set2.get_all()
+        for el in elems_2:
+            if not self.get(el):
+                return False
+        return True
