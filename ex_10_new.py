@@ -18,11 +18,15 @@ class PowerSet:
         # return False
     
     def remove(self, value):
-        for i in range(self.count):
-            if self.table[i] == value:
-                self.table.pop(i)
-                self.count -= 1
-                return True
+        item = self.table.pop(value, None)
+        if item is not None:
+            self.count -= 1
+            return True
+        # for i in range(self.count):
+        #     if self.table[i] == value:
+        #         self.table.pop(i)
+        #         self.count -= 1
+        #         return True
         return False
     
     def put(self, value):
